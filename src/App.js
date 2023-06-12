@@ -3,12 +3,14 @@ import Navigation from './components/Navigation/Navigation';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
+import ParticlesBg from 'particles-bg';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <ParticlesBg num={50} type="lines" bg={true} />
         <Navigation />
         <Logo />
         <Rank />
