@@ -1,6 +1,6 @@
 import React from 'react';
 import Tilt from 'react-parallax-tilt';
-import brain from './brain.png';
+import magicwand from './logo.png';
 import './Logo.css';
 
 const Logo = () => {
@@ -14,7 +14,7 @@ const Logo = () => {
           }}
         >
           <div className='Tilt-inner pa3' >            
-            <img style={{paddingTop: '5px'}} src={brain} alt="logo" />
+            <img style={{paddingTop: '5px'}} src={magicwand} alt="logo" />
           </div>
         </div>
       </Tilt>
