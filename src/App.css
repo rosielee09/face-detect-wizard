@@ -6,3 +6,12 @@
   display: flex;
   justify-content: center;
 }
+
+.rank {
+  z-index: 2;
+  position: relative;
+}
+
+#tsparticles {
+  position: relative;
+}

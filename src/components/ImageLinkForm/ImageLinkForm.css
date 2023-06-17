@@ -1,8 +1,15 @@
 .form {
-  width: 700px; 
+  width: 700px;
   background-color: #e5e5f7;
   opacity: 0.8;
-  background-image:  repeating-linear-gradient(45deg, #7145f7 25%, transparent 25%, transparent 75%, #7145f7 75%, #7145f7), repeating-linear-gradient(45deg, #7145f7 25%, #e5e5f7 25%, #e5e5f7 75%, #7145f7 75%, #7145f7);
-  background-position: 0 0, 10px 10px;
-  background-size: 20px 20px;  
+  /* background-image:  repeating-linear-gradient(45deg, #7145f7 25%, transparent 25%, transparent 75%, #7145f7 75%, #7145f7), repeating-linear-gradient(45deg, #7145f7 25%, #e5e5f7 25%, #e5e5f7 75%, #7145f7 75%, #7145f7); */
+  /* background-position: 0 0, 10px 10px;
+  background-size: 40px 40px;   */
+  background-image: url('https://images.unsplash.com/photo-1503416997304-7f8bf166c121?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2l0Y2h8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60');
+}
+
+.info {
+  color: rgb(255, 255, 255);
+  z-index: 2;
+  position: relative;
 }

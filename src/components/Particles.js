@@ -97,6 +97,7 @@ const ParticlesComponent = () => {
         },
         background: {
           color: '#232741',
+          
         },
       }}
     />

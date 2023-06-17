@@ -4,8 +4,10 @@ import './ImageLinkForm.css';
 const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
   return (
     <div>
-      <p className="f3">
-        {'Unleash the Power of Face Detection: Discover Faces in Your Pictures with Incredible Accuracy. Give it a Try'}
+      <p className="f3 info">
+        {
+          'Expelliarmus and Lumos! Face Detection: Reveal Faces in Your Pictures with Unerring Precision.'
+        }
       </p>
       <div className="center">
         <div className="form center pa4 br3 shadow-5">

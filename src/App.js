@@ -4,9 +4,9 @@ import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Rank from './components/Rank/Rank';
-
 import './App.css';
 import Particles from './components/Particles';
+
 // import Clarifai from 'clarifai';
 
 const returnClarifaiRequestOptions = (imageUrl) => {

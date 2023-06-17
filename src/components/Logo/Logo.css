@@ -1,4 +1,5 @@
 .Tilt {
-  background: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);
+  background: rgba(136, 136, 139, 0.1);
   width: 150px;
+  cursor: pointer;
 }
