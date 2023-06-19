@@ -15,3 +15,23 @@
 #tsparticles {
   position: relative;
 }
+
+#signout {
+  color: white;
+  z-index: 2;
+}
+
+#measure{
+  margin-top: 10px;
+}
+
+
+.signincard {
+  
+  z-index: 2;
+  
+}
+
+#sign_up {
+  border: none;
+}

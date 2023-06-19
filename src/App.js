@@ -4,18 +4,23 @@ import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Rank from './components/Rank/Rank';
+import Signin from './components/Signin/Signin';
 import './App.css';
 import Particles from './components/Particles';
-
 // import Clarifai from 'clarifai';
 
 const returnClarifaiRequestOptions = (imageUrl) => {
-  // URL of image to use. Change this to your image.
+  // Your PAT (Personal Access Token) can be found in the portal under Authentification
+  const PAT = '69f9dfd5a33c4f79816b321d0294378e';
+  const USER_ID = 'developingwithrosie';
+  const APP_ID = 'face-detection';
+  // const MODEL_ID = 'general-image-recognition';
   const IMAGE_URL = 'imageUrl';
+
   const raw = JSON.stringify({
     user_app_id: {
-      user_id: 'developingwithrosie',
-      app_id: 'face-detection',
+      user_id: USER_ID,
+      app_id: APP_ID,
     },
     inputs: [
       {
@@ -32,7 +37,7 @@ const returnClarifaiRequestOptions = (imageUrl) => {
     method: 'POST',
     headers: {
       Accept: 'application/json',
-      Authorization: 'Key ' + '69f9dfd5a33c4f79816b321d0294378e',
+      Authorization: 'key' + PAT,
     },
     body: raw,
   };
@@ -45,8 +50,29 @@ class App extends Component {
     this.state = {
       input: '',
       imageUrl: '',
+      box: {},
+      route: 'signin',
     };
   }
+
+  calculateFaceLocation = (data) => {
+    const clarifaiFace =
+      data.outputs[0].data.regions[0].region_info.bounding_box;
+    const image = document.getElementById('inputimage');
+    const width = Number(image.width);
+    const height = Number(image.height);
+    return {
+      leftCol: clarifaiFace.left_col * width,
+      topRow: clarifaiFace.top_row * height,
+      rightCol: width - clarifaiFace.right_col * width,
+      bottomRow: height - clarifaiFace.bottom_row * height,
+    };
+  };
+
+  displayFaceBox = (box) => {
+    console.log(box);
+    this.setState({ box: box });
+  };
 
   onInputChange = (event) => {
     this.setState({ input: event.target.value });
@@ -55,33 +81,43 @@ class App extends Component {
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
 
-    // app.models.predict('face-detection', this.state.input)
     fetch(
-      `https://api.clarifai.com/v2/workflows/Face/results`,
+      `https://api.clarifai.com/v2/workflows/Face-V4/results/`,
       returnClarifaiRequestOptions(this.state.input)
     )
       .then((response) => response.json())
-      .then(
-        function (response) {
-          console.log(response);
-        },
-        // .outputs[0].data.regions[0].region_info.bounding_box
-        function (err) {}
-      );
+      .then((response) => {
+        console.log(response);
+        this.displayFaceBox(this.calculateFaceLocation(response));
+      })
+      .catch((err) => console.log(err));
+  };
+
+  onRouteChange = (route) => {
+    this.setState({ route: route });
   };
 
   render() {
     return (
       <div className="App">
         <Particles />
-        <Navigation />
-        <Logo />
-        <Rank />
-        <ImageLinkForm
-          onInputChange={this.onInputChange}
-          onButtonSubmit={this.onButtonSubmit}
-        />
-        <FaceRecognition imageUrl={this.state.imageUrl} />
+        <Navigation onRouteChange={this.onRouteChange} />
+        {this.state.route === 'signin' ? (
+          <Signin onRouteChange={this.onRouteChange} />
+        ) : (
+          <div>
+            <Logo />
+            <Rank />
+            <ImageLinkForm
+              onInputChange={this.onInputChange}
+              onButtonSubmit={this.onButtonSubmit}
+            />
+            <FaceRecognition
+              box={this.state.box}
+              imageUrl={this.state.imageUrl}
+            />
+          </div>
+        )}
       </div>
     );
   }
