@@ -11,11 +11,10 @@ import Particles from './components/Particles';
 
 const returnClarifaiRequestOptions = (imageUrl) => {
   // Your PAT (Personal Access Token) can be found in the portal under Authentification
-  const PAT = '69f9dfd5a33c4f79816b321d0294378e';
+  const PAT = 'dfed0c72791246cb9c34dd836556b305';
   const USER_ID = 'developingwithrosie';
   const APP_ID = 'face-detection';
-  // const MODEL_ID = 'general-image-recognition';
-  const IMAGE_URL = 'imageUrl';
+  const IMAGE_URL = imageUrl;
 
   const raw = JSON.stringify({
     user_app_id: {
@@ -37,7 +36,7 @@ const returnClarifaiRequestOptions = (imageUrl) => {
     method: 'POST',
     headers: {
       Accept: 'application/json',
-      Authorization: 'key' + PAT,
+      Authorization: 'Key ' + PAT,
     },
     body: raw,
   };
@@ -82,7 +81,7 @@ class App extends Component {
     this.setState({ imageUrl: this.state.input });
 
     fetch(
-      `https://api.clarifai.com/v2/workflows/Face-V4/results/`,
+      `https://api.clarifai.com/v2/models/face-detection/versions/6dc7e46bc9124c5c8824be4822abe105/outputs`,
       returnClarifaiRequestOptions(this.state.input)
     )
       .then((response) => response.json())
