@@ -11,7 +11,7 @@ import Particles from './components/Particles';
 
 const returnClarifaiRequestOptions = (imageUrl) => {
   // Your PAT (Personal Access Token) can be found in the portal under Authentification
-  const PAT = 'dfed0c72791246cb9c34dd836556b305';
+  const PAT = 'YOUR_PAT';
   const USER_ID = 'developingwithrosie';
   const APP_ID = 'face-detection';
   const IMAGE_URL = imageUrl;
