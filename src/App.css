@@ -21,6 +21,17 @@
   z-index: 2;
 }
 
+#signin {
+  color: white;
+  z-index: 2;
+}
+
+
+#register {
+  color: white;
+  z-index: 2;
+}
+
 #measure{
   margin-top: 10px;
 }

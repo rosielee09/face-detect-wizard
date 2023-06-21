@@ -6,12 +6,12 @@ import { useCallback } from 'react';
 
 const ParticlesComponent = () => {
   const particlesInit = useCallback(async (engine) => {
-    console.log(engine);
+    // console.log(engine);
     await loadSlim(engine);
   }, []);
 
   const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
+    // await console.log(container);
   }, []);
 
   return (
@@ -97,7 +97,6 @@ const ParticlesComponent = () => {
         },
         background: {
           color: '#232741',
-          
         },
       }}
     />
