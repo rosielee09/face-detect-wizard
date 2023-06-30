@@ -2,12 +2,15 @@ import React from 'react';
 import './FaceRecognition.css';
 
 const FaceRecognition = ({ imageUrl, box }) => {
+  if (!imageUrl) {
+    return null;
+  }
   return (
     <div className="center ma">
       <div className="absolute mt2">
         <img
           id="inputimage"
-          src={imageUrl}
+          src={ imageUrl }
           alt="facedetectimage"
           width="500px"
           height="auto"
