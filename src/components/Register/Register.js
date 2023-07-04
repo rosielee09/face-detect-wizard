@@ -39,7 +39,6 @@ class Register extends React.Component {
   };
 
   render() {
-    const { onRouteChange } = this.props;
     return (
       <article className=" mv5 w-100 w-50-m w-25-l mw6 center">
         <div className="signincard br3 pa4 bg-transparent shadow-2 white">
