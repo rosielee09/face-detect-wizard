@@ -35,3 +35,5 @@ https://github.com/rosielee09/face-detect-wizard/assets/123128268/a10968a4-db8a-
 - react-parallax-tilt: logo
 - react-tsparticles: background
 
+### Back-end repo
+https://github.com/rosielee09/face-recognition-api
