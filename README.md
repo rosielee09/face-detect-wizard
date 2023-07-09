@@ -30,7 +30,7 @@ For those who want to skip the register
 https://github.com/rosielee09/face-detect-wizard/assets/123128268/a10968a4-db8a-4a94-b642-6e722921b891
 
 
-### Curious fellows! This is what I used!
+### Extra Info for curious fellows!
 - bcrypt: encrypting password
 - react-parallax-tilt: logo
 - react-tsparticles: background
